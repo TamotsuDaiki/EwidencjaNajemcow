@@ -1,0 +1,40 @@
+﻿@model Apartment
+@{
+    ViewData["Title"] = "Szczegóły mieszkania";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Szczegóły mieszkania</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Ulica</dt>
+        <dd class="col-sm-9">@Model.Street</dd>
+
+        <dt class="col-sm-3">Numer bloku</dt>
+        <dd class="col-sm-9">@Model.BuildingNumber</dd>
+
+        <dt class="col-sm-3">Numer mieszkania</dt>
+        <dd class="col-sm-9">@Model.ApartmentNumber</dd>
+
+        <dt class="col-sm-3">Miasto</dt>
+        <dd class="col-sm-9">@Model.City</dd>
+
+        <dt class="col-sm-3">Kod pocztowy</dt>
+        <dd class="col-sm-9">@Model.PostalCode</dd>
+
+        <dt class="col-sm-3">Czy wynajęte?</dt>
+        <dd class="col-sm-9">@(Model.IsRented ? "Tak" : "Nie")</dd>
+
+        <dt class="col-sm-3">Liczba pokoi</dt>
+        <dd class="col-sm-9">@Model.NumberOfRooms</dd>
+
+        <dt class="col-sm-3">Metraż (m²)</dt>
+        <dd class="col-sm-9">@Model.Area</dd>
+
+        <dt class="col-sm-3">Wynajmujący</dt>
+        <dd class="col-sm-9">@Model.RentedBy</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edytuj</a>
+    <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Rental
+@{
+    ViewData["Title"] = "Szczegóły umowy najmu";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Szczegóły umowy najmu</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Numer umowy</dt>
+        <dd class="col-sm-9">@Model.ContractNumber</dd>
+
+        <dt class="col-sm-3">Data rozpoczęcia</dt>
+        <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Data zakończenia</dt>
+        <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Czynsz miesięczny</dt>
+        <dd class="col-sm-9">@Model.MonthlyRent.ToString("C")</dd>
+
+        <dt class="col-sm-3">Aktywna?</dt>
+        <dd class="col-sm-9">@(Model.IsActive ? "Tak" : "Nie")</dd>
+
+        <dt class="col-sm-3">Najemca</dt>
+        <dd class="col-sm-9">@Model.Tenant?.FullName</dd>
+
+        <dt class="col-sm-3">Mieszkanie</dt>
+        <dd class="col-sm-9">@Model.Apartment?.AddressSummary</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">Edytuj</a>
+    <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+</div>

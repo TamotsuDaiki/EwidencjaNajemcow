@@ -1,0 +1,26 @@
+﻿@model Tenant
+@{
+    ViewData["Title"] = "Usuń najemcę";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Czy na pewno chcesz usunąć tego najemcę?</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Imię i nazwisko</dt>
+        <dd class="col-sm-9">@Model.FullName</dd>
+
+        <dt class="col-sm-3">E-mail</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Telefon</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>
+`

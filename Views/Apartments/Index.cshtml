@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Apartment>
+@{
+    ViewData["Title"] = "Mieszkania";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Lista mieszkań</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Dodaj mieszkanie</a>
+    </p>
+
+    <table class="table table-striped table-bordered shadow-sm">
+        <thead class="table-light">
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.First().Street)</th>
+                <th>@Html.DisplayNameFor(m => m.First().BuildingNumber)</th>
+                <th>@Html.DisplayNameFor(m => m.First().ApartmentNumber)</th>
+                <th>@Html.DisplayNameFor(m => m.First().City)</th>
+                <th>@Html.DisplayNameFor(m => m.First().IsRented)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Street</td>
+                    <td>@item.BuildingNumber</td>
+                    <td>@item.ApartmentNumber</td>
+                    <td>@item.City</td>
+                    <td>@(item.IsRented ? "Tak" : "Nie")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Edytuj</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Szczegóły</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

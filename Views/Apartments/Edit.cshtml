@@ -1,0 +1,61 @@
+﻿@model Apartment
+@{
+    ViewData["Title"] = "Edytuj mieszkanie";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Edytuj mieszkanie</h2>
+
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Street" class="form-label"></label>
+            <input asp-for="Street" class="form-control" />
+            <span asp-validation-for="Street" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BuildingNumber" class="form-label"></label>
+            <input asp-for="BuildingNumber" class="form-control" />
+            <span asp-validation-for="BuildingNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ApartmentNumber" class="form-label"></label>
+            <input asp-for="ApartmentNumber" class="form-control" />
+            <span asp-validation-for="ApartmentNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="City" class="form-label"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PostalCode" class="form-label"></label>
+            <input asp-for="PostalCode" class="form-control" />
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <input asp-for="IsRented" class="form-check-input" type="checkbox" />
+            <label asp-for="IsRented" class="form-check-label"></label>
+            <span asp-validation-for="IsRented" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NumberOfRooms" class="form-label"></label>
+            <input asp-for="NumberOfRooms" class="form-control" />
+            <span asp-validation-for="NumberOfRooms" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Area" class="form-label"></label>
+            <input asp-for="Area" class="form-control" />
+            <span asp-validation-for="Area" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="RentedBy" class="form-label"></label>
+            <input asp-for="RentedBy" class="form-control" />
+            <span asp-validation-for="RentedBy" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

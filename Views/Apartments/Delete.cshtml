@@ -1,0 +1,28 @@
+﻿@model Apartment
+@{
+    ViewData["Title"] = "Usuń mieszkanie";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Czy na pewno chcesz usunąć to mieszkanie?</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Adres</dt>
+        <dd class="col-sm-9">@Model.AddressSummary</dd>
+
+        <dt class="col-sm-3">Miasto</dt>
+        <dd class="col-sm-9">@Model.City</dd>
+
+        <dt class="col-sm-3">Metraż (m²)</dt>
+        <dd class="col-sm-9">@Model.Area</dd>
+
+        <dt class="col-sm-3">Liczba pokoi</dt>
+        <dd class="col-sm-9">@Model.NumberOfRooms</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

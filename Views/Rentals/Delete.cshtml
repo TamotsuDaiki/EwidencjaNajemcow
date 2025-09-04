@@ -1,0 +1,28 @@
+﻿@model Rental
+@{
+    ViewData["Title"] = "Usuń umowę najmu";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Czy na pewno chcesz usunąć tę umowę?</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Numer umowy</dt>
+        <dd class="col-sm-9">@Model.ContractNumber</dd>
+
+        <dt class="col-sm-3">Najemca</dt>
+        <dd class="col-sm-9">@Model.Tenant?.FullName</dd>
+
+        <dt class="col-sm-3">Mieszkanie</dt>
+        <dd class="col-sm-9">@Model.Apartment?.AddressSummary</dd>
+
+        <dt class="col-sm-3">Czynsz miesięczny</dt>
+        <dd class="col-sm-9">@Model.MonthlyRent.ToString("C")</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Usuń</button>
+        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>

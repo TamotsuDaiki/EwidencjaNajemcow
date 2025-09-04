@@ -1,0 +1,28 @@
+﻿@model Tenant
+@{
+    ViewData["Title"] = "Szczegóły najemcy";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Szczegóły najemcy</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Imię</dt>
+        <dd class="col-sm-9">@Model.FirstName</dd>
+
+        <dt class="col-sm-3">Nazwisko</dt>
+        <dd class="col-sm-9">@Model.LastName</dd>
+
+        <dt class="col-sm-3">PESEL</dt>
+        <dd class="col-sm-9">@Model.PESEL</dd>
+
+        <dt class="col-sm-3">E-mail</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Telefon</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edytuj</a>
+    <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+</div>
